@@ -1,0 +1,291 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'HOME.title' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="openMoreSettings()">
+        <ion-icon slot="icon-only" name="ellipsis-vertical-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-segment color="secondary" [(ngModel)]="mainSegment" (ionChange)="segmentChanged($event)" scrollable>
+    <ion-segment-button value="quotes">
+      <ion-label>Quotes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="stories">
+      <ion-label>Stories</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="videos">
+      <ion-label>Videos</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="sms">
+      <ion-label>SMS</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="mainSegment">
+
+    <ion-list *ngSwitchCase="'quotes'">
+
+      <ion-card class="main-card">
+        <img src="../../assets/images/img1.png">
+      </ion-card>
+
+      <ion-card class="main-card">
+        <img src="../../assets/images/img1.png">
+      </ion-card>
+
+      <ion-card class="main-card">
+        <img src="../../assets/images/img1.png">
+      </ion-card>
+
+    </ion-list>
+
+    <ion-list lines="full" *ngSwitchCase="'stories'">
+
+      <ion-card class="main-card">
+        <img src="../../assets/images/img1.png">
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="main-card">
+        <img src="../../assets/images/img1.png">
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-card-content>
+      </ion-card>
+
+
+      <ion-card class="main-card">
+        <img src="../../assets/images/img1.png">
+        <ion-card-header>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          <ion-card-title>Card Title</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-card-content>
+      </ion-card>
+
+
+    </ion-list>
+
+    <ion-list lines="full" *ngSwitchCase="'videos'">
+      
+      <iframe width="" height="" src="https://www.youtube.com/embed/12_TcUXP6mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      <iframe width="" height="" src="https://www.youtube.com/embed/Ln2M_dCtyw4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </ion-list>
+
+    
+    <ion-list lines="full" *ngSwitchCase="'sms'">
+      
+      
+      <ion-card class="main-card">
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-card-content>
+      </ion-card>
+
+            
+      <ion-card class="main-card">
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-card-content>
+      </ion-card>
+
+            
+      <ion-card class="main-card">
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button fill="clear" color="primary" expand="full">
+                  <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+  </div>
+
+</ion-content>

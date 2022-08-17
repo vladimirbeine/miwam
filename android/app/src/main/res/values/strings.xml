@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">miwam</string>
+    <string name="title_activity_main">miwam</string>
+    <string name="package_name">com.wappinesslab.miwam</string>
+    <string name="custom_url_scheme">com.wappinesslab.miwam</string>
+</resources>

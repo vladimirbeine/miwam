@@ -1,0 +1,6 @@
+{
+	"appId": "com.wappinesslab.miwam",
+	"appName": "miwam",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

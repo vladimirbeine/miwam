@@ -1,0 +1,16 @@
+{
+    "HOME": {
+        "title": "Home",
+        "segQuotes": "Quotes",
+        "segStories": "Stories",
+        "segVideos": "Videos",
+        "segSMS": "SMS"
+    },
+    "PROFILE": {
+        "title": "Profile"
+    },
+    "SETTINGS": {
+        "title": "Setting"
+    }
+
+}

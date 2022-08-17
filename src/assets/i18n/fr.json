@@ -1,0 +1,16 @@
+{
+    "HOME": {
+        "title": "Accueil",
+        "segQuotes": "Pensées",
+        "segStories": "Histoires",
+        "segVideos": "Vidéos",
+        "segSMS": "SMS"
+    },
+    "PROFILE": {
+        "title": "Profil"
+    },
+    "SETTINGS": {
+        "title": "Paramètres"
+    }
+
+}

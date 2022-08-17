@@ -1,0 +1,8 @@
+    <ion-list lines="full" *ngSwitchCase="'quotes'">
+      <ion-item *ngFor="let item of [].constructor(7); let i = index">
+        <ion-thumbnail slot="start">
+          <img src="../../../assets/images/capacitor-logo.png">
+        </ion-thumbnail>
+        <h6>Deposit - {{ i }}</h6>
+      </ion-item>
+    </ion-list>

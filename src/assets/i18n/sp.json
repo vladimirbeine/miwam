@@ -1,0 +1,16 @@
+{
+    "HOME": {
+        "title": "Bienvenido",
+        "segQuotes": "Pensamiento",
+        "segStories": "Conteo",
+        "segVideos": "Video",
+        "segSMS": "SMS"
+    },
+    "PROFILE": {
+        "title": "Perfil"
+    },
+    "SETTINGS": {
+        "title": "Parametros"
+    }
+
+}

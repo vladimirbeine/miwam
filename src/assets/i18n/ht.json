@@ -1,0 +1,16 @@
+{
+    "HOME": {
+        "title": "Akèy",
+        "segQuotes": "Panse",
+        "segStories": "Istwa",
+        "segVideos": "Videyo",
+        "segSMS": "SMS"
+    },
+    "PROFILE": {
+        "title": "Pwofil"
+    },
+    "SETTINGS": {
+        "title": "Paramèt"
+    }
+
+}

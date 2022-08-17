@@ -1,0 +1,54 @@
+/* Style componets 3
+===========================*/
+:host {
+    --img-size: 120px;
+  }
+
+  ion-toolbar {
+    --background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  ion-content {
+    top: -55px !important;
+  }
+  
+  ion-img {
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  ion-thumbnail {
+    width: var(--img-size);
+    height: var(--img-size);
+  }
+  
+  [slot=start] {
+    margin-right: 16px;
+  }
+  
+  ion-card {
+    overflow: visible;
+  
+    ion-card-content {
+      margin-top: -50px;
+      padding: 16px;
+    }
+  
+    .span-big {
+      color: var(--text-color-secondary, #191b1c);
+      clear: both;
+      display: block;
+    }
+  }
+  
+  .border-radius {
+    border-radius: 20px 20px 0 0 !important;
+  }
+
+  ion-card.no-border {
+    box-shadow: none !important;
+  }
+
+  

@@ -1,0 +1,73 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!--- Content -->
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="box-shadow-none ion-no-margin no-border">
+          <!--Card image-->
+          <img class="main-profile-picture" src="../../../assets/images/img1.png">
+          <ion-card-content class="ion-text-center">
+            <ion-item class="box-shadow ion-no-padding border-radius" lines="none">
+              <ion-label class="ion-text-center">
+                <h1 class="size-xl font-bold">{{ user.firstname }} {{ user.lastname }}</h1>
+                <h3 class="size-md">{{ user.createdAt | date:'short' }}</h3>
+              </ion-label>
+            </ion-item>
+            <ion-row class="ion-margin">
+              <ion-col size="6" class="ion-no-padding">
+                <!-- Button Following-->
+                <ion-button shape="round" fill="outline" class="ion-text-capitalize box-shadow default-button" expand="full"
+                >
+                  Follow
+                </ion-button>
+              </ion-col>
+              <ion-col size="6" class="ion-no-padding">
+                <!-- Button Massage -->
+                <ion-button shape="round" fill="outline" class="ion-text-capitalize box-shadow default-button" expand="full"
+                >
+                  Message
+                </ion-button>
+              </ion-col>
+              <ion-col size="6" class="ion-no-padding">
+                <!-- Button Massage -->
+                <ion-button (click)="logout()" shape="round" fill="outline" class="ion-text-capitalize box-shadow default-button" expand="full"
+                >
+                  Logout
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card class="box-shadow-none ion-margin">
+          <!--Card Title-->
+          <ion-card-header class="ion-text-center">
+            <h2 class="size-xl font-bold">Vladimir Beine</h2>
+            <h3 class="size-md">Web and Mobile Developer</h3>
+          </ion-card-header>
+          <!-- Item List -->
+          <ion-item class="box-shadow border-radius ion-margin-bottom ion-no-padding" lines="none"
+          >
+            <!-- Item List image -->
+            <ion-thumbnail slot="start">
+              <img class="border-radius" src="../../../assets/images/capacitor-logo.png" />
+            </ion-thumbnail>
+            <ion-label>
+              <h3 class="size-md">Product Item 1</h3>
+              <h5 class="ion-text-wrap size-sm">Product subtitle</h5>
+              <p class="size-sm ion-padding-top">Purchased time</p>
+            </ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
