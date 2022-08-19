@@ -1,13 +1,12 @@
 export const environment = {
   firebase: {
-    projectId: 'miwam-app',
-    appId: '1:903278509862:web:3c5d0044a83e47890bcbe7',
-    storageBucket: 'miwam-app.appspot.com',
-    locationId: 'us-central',
-    apiKey: 'AIzaSyCVpZQZ0ogCrnoZewhBYfmbKeA6BtT7s1A',
-    authDomain: 'miwam-app.firebaseapp.com',
-    messagingSenderId: '903278509862',
-    measurementId: 'G-YJQKTK5DEF',
+    apiKey: "AIzaSyDBeCGDv91Vhp_9xfUadwR2QVGQcuaxTIg",
+    authDomain: "miwamapp.firebaseapp.com",
+    projectId: "miwamapp",
+    storageBucket: "miwamapp.appspot.com",
+    messagingSenderId: "980914679428",
+    appId: "1:980914679428:web:2a7f59fbbc64b28c565cd1",
+    measurementId: "G-7S1GSWR7GK"
   },
   production: true
 };

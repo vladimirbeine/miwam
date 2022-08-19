@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
-import { UserInterface } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,37 +11,32 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ProfilePage implements OnInit {
 
-  user : UserInterface = {
-    id: '',
-    email: '',
-    firstname: '',
-    lastname: '',
-    createdAt: new Date().getTime(),
-    phone: null
-  };
+  user: any;
 
-  constructor(private authService: AuthService, private router: Router, private loadingController: LoadingController, private auth: Auth) { }
+  constructor(
+    private authService: AuthService,
+    private profileService: ProfileService,
+    private router: Router,
+    private loadingController: LoadingController
+    ) {
+    this.loadProfile();
+    }
 
-  ngOnInit() {
-    this.loadUserProfile();
-  }
+  ngOnInit() { }
 
-  async loadUserProfile(): Promise<any> {
+  async loadProfile(): Promise<any> {
     const loading = await this.loadingController.create({
-      message: "Loading Todo..",
+      message: "Loading Profile...",
     });
     await loading.present();
 
-    this.authService.getCurrentUser(this.auth.currentUser.uid).subscribe((res) => {
-      loading.dismiss();
+    this.profileService.getProfile().subscribe((res) => {
       this.user = res;
-
-
-      console.log('Res: ', this.user);
+      console.log("Profile data: ", this.user)
+      loading.dismiss();
     });
-
-    console.log(this.auth.currentUser.uid);
   }
+
 
   async logout() {
     await this.authService.logout();

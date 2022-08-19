@@ -4,65 +4,41 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
-  UserCredential
 } from '@angular/fire/auth';
-import { SignupInterface, UserInterface } from '../interfaces/user';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-} from "@angular/fire/compat/firestore";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { SignupInterface } from '../interfaces/user';
+import { setDoc, DocumentReference } from 'firebase/firestore';
+import { doc, Firestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private signedUpUserCollection: AngularFirestoreCollection<SignupInterface>;
-  private users: Observable<SignupInterface[]>;
-
-  constructor(
-    private auth: Auth,
-    db: AngularFirestore
-    ) {
-    
-    this.signedUpUserCollection = db.collection<SignupInterface>("users", ref => ref.orderBy("id"));
-
-    this.users = this.signedUpUserCollection.snapshotChanges().pipe(
-      map((actions) => {
-        return actions.map((user) => {
-          //loops through users and returns user with id
-          return { id: user.payload.doc.id, ...user.payload.doc.data() };
-        });
-      })
-    );
+  constructor(private auth: Auth, private firestore: Firestore) {
   }
 
-  async signup(user: SignupInterface) {
-    try {
-      const userSignedUp = await createUserWithEmailAndPassword(
+  signup(user: SignupInterface): Promise<void> {
+    return createUserWithEmailAndPassword(
         this.auth,
         user.email,
         user.password
-      ).then((newUser: UserCredential) =>{
-        this.signedUpUserCollection.add({
-          id: newUser.user.uid,
+      ).then (async () => {
+        const userDocumentReference: DocumentReference = doc(this.firestore, `/users/${this.auth.currentUser.uid}`);
+        await setDoc(userDocumentReference, {
+          id: this.auth.currentUser.uid,
           email: user.email,
           password: user.password,
           firstname: user.firstname,
           lastname: user.lastname,
-          createdAt: user.createdAt,
-          phone: user.phone
+          phone: user.phone,
+          createdAt: new Date(),
+          role: 'user'
         });
+      }).catch(e => {
+        console.log("Error on signup: ", e);
       });
-
-      return userSignedUp;
-    } catch (e) {
-      return null;
-    }
   }
- 
+
   async signin({ email, password }) {
     try {
       const user = await signInWithEmailAndPassword(this.auth, email, password);
@@ -74,15 +50,6 @@ export class AuthService {
  
   logout() {
     return signOut(this.auth);
-  }
-
-  // Return observable array of todos
-  getAllUsers(): Observable<UserInterface[]> {
-    return this.users;
-  }
-  // Return a todo from database collection by id to view
-  getCurrentUser(id: string): Observable<UserInterface> {
-    return this.signedUpUserCollection.doc<UserInterface>(id).valueChanges();
   }
 
 }
