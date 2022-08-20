@@ -1,10 +1,4 @@
-/* Style componets 3
-===========================*/
-:host {
-    --img-size: 120px;
-  }
-
-  ion-toolbar {
+ion-toolbar {
     --background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -12,20 +6,6 @@
 
   ion-content {
     top: -55px !important;
-  }
-  
-  ion-img {
-    height: 300px;
-    object-fit: cover;
-  }
-  
-  ion-thumbnail {
-    width: var(--img-size);
-    height: var(--img-size);
-  }
-  
-  [slot=start] {
-    margin-right: 16px;
   }
   
   ion-card {
@@ -41,20 +21,78 @@
       clear: both;
       display: block;
     }
+    
+    img.avatar {
+      border-radius: 50% !important;
+      object-fit: cover;
+      height: 150px;
+      width: 150px;
+      margin: -70px auto 10px auto !important;
+      display: block;
+      border: 2px solid white;
+    }
   }
+
   
-  .border-radius {
-    border-radius: 20px 20px 0 0 !important;
+  img.main-profile-picture {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
   }
 
   ion-card.no-border {
     box-shadow: none !important;
   }
 
-  .followers-section {
-    background: #f2f2f2;
-    border-radius: 20px;
+  .red-test {
+    background: red !important;
+  }
+
+  .blue-test {
+    background: blue !important;
+    --background: blue !important;
+  }
+
+  .image-list {
+    display: flex;
+  
+    ion-img {
+      overflow: hidden;
+    }
+  
+    .item-images {
+      margin: 0 15px !important;
+    }
+  
+    & > .item-images:nth-child(1),
+    & > .item-images:nth-child(3) {
+      margin: 0 !important;
+    }
+  }
+
+  #gallery-display-center {
     padding: 10px;
-    margin: 10px auto;
-    display: block;
+  }
+
+  #gallery-display {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  align-items: center;
+  justify-content: center;
+  }
+
+  .flex-3cols {
+    flex: 0 0 30%;
+    margin: 2px;
+  }
+  #sms-display-center {
+    padding: 10px;
+  }
+
+  #sms-display {
+  display: block;
+  padding-left: 0;
   }
