@@ -3,6 +3,10 @@ ion-toolbar {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
+
+ion-content {
+    --offset-top: 55px !important;
+}
   
 ion-card.main-card {
     margin: 30px;

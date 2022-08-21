@@ -11,7 +11,7 @@ import { ProfileService } from 'src/app/services/profile.service';
 })
 export class ProfilePage implements OnInit {
 
-  user: any;
+  user: any = null;
 
   constructor(
     private authService: AuthService,

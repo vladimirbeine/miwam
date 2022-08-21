@@ -5,7 +5,8 @@ ion-toolbar {
   }
 
   ion-content {
-    top: -55px !important;
+    --offset-top: 55px !important;
+    --background: #fafafa;
   }
   
   ion-card {
@@ -46,8 +47,9 @@ ion-toolbar {
     box-shadow: none !important;
   }
 
-  .red-test {
-    background: red !important;
+  .main-gradient {
+    background: rgb(121,9,119);
+    background: linear-gradient(45deg, rgba(121,9,119,1) 35%, rgba(255,200,0,1) 100%);
   }
 
   .blue-test {
@@ -72,8 +74,8 @@ ion-toolbar {
     }
   }
 
-  #gallery-display-center {
-    padding: 10px;
+  #gallery-display-container {
+    padding: 20px;
   }
 
   #gallery-display {
@@ -88,11 +90,40 @@ ion-toolbar {
     flex: 0 0 30%;
     margin: 2px;
   }
-  #sms-display-center {
-    padding: 10px;
+  #sms-display-container {
+    padding: 20px;
   }
 
   #sms-display {
   display: block;
   padding-left: 0;
+  }
+
+  .sms-item {
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --padding-bottom: 10px;
+    --border: 1px solid #f2f2f2;
+  }
+
+  .sms-category {
+    background: #fefefe;
+    color: var(--ion-color-primary);
+    padding: 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+  }
+
+  .sms-date {
+    font-style: italic;
+    color: lightgray;
+  }
+
+  .main-info {
+    --background:rgba(255,0,0,0.0);
+    --color: #fff;
+  }
+
+  .lightgray {
+    color: lightgray;
   }

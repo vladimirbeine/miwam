@@ -9,10 +9,10 @@
 
 <ion-content>
         <img class="main-profile-picture ion-no-margin no-border" src="../../../assets/images/avatars/1.jpg">
-        <ion-card class="red-test box-shadow-none ion-no-margin no-border">
+        <ion-card class="main-gradient box-shadow-none ion-no-margin no-border">
           <ion-card-content class="ion-text-center">
             <img class="avatar box-shadow" src="../../../assets/images/avatars/1.jpg">
-            <ion-item class="blue-test box-shadow ion-no-padding" lines="none">
+            <ion-item class="main-info box-shadow ion-no-padding" lines="none">
               <ion-label class="ion-text-center">
                 <h1 class="size-xl font-bold">{{ user?.firstname }} {{ user?.lastname }}</h1>
                 <ion-grid>
@@ -20,19 +20,19 @@
                     <ion-col>
                       <ion-label class="ion-text-wrap">
                         <h3 style="font-size: 20px;">123</h3>
-                        <p>Followers</p>
+                        <p class="lightgray">Followers</p>
                       </ion-label>
                     </ion-col>
                     <ion-col>
                       <ion-label class="ion-text-wrap">
                         <h3 style="font-size: 20px;">345</h3>
-                        <p>Following</p>
+                        <p class="lightgray">Following</p>
                       </ion-label>
                     </ion-col>
                     <ion-col>
                       <ion-label class="ion-text-wrap">
                         <h3 style="font-size: 20px;">21</h3>
-                        <p>Images</p>
+                        <p class="lightgray">Images</p>
                       </ion-label>
                     </ion-col>
                   </ion-row>
@@ -41,10 +41,10 @@
             </ion-item>
             <ion-row class="ion-margin">
               <ion-col class="ion-no-padding">
-                <ion-button shape="round" class="ion-text-capitalize box-shadow default-button" expand="full">Follow</ion-button>
+                <ion-button color="light" shape="round" class="ion-text-capitalize box-shadow default-button" expand="full">Follow</ion-button>
               </ion-col>
               <ion-col class="ion-no-padding">
-                <ion-button shape="round" fill="outline" class="ion-text-capitalize box-shadow default-button" expand="full">Message</ion-button>
+                <ion-button color="light" shape="round" fill="outline" class="ion-text-capitalize box-shadow default-button" expand="full">Message</ion-button>
               </ion-col>
             </ion-row>
           </ion-card-content>
@@ -52,7 +52,7 @@
 
 
         
-        <div id="gallery-display-center">
+        <div id="gallery-display-container">
           <h1>My Quotes</h1>
         <div id="gallery-display">
           <ion-img class="flex-3cols" src="../../../assets/images/contents/1.jpg"></ion-img>
@@ -64,39 +64,39 @@
         </div>
         </div>
                 
-        <div id="sms-display-center">
+        <div id="sms-display-container">
           <h1>My SMS</h1>
         <div id="sms-display">
-          <ion-item class="box-shadow ion-margin-top ion-no-padding" lines="none">
+          <ion-item class="box-shadow ion-margin-top ion-no-padding sms-item" lines="none">
             <ion-label>
-              <h2 style="font-size: 20px;">Ma vie est enfermee dans une boite</h2>
-              <h3 class="ion-text-wrap size-sm">Style de vie</h3>
+              <h2 style="font-size: 20px;" class="ion-text-wrap">Ma vie est enfermee dans une boite</h2>
+              <h3 class="ion-text-wrap size-sm sms-category">Style de vie</h3>
               <ion-text class="ion-text-wrap">
                 Pourquoi je voem pourquoi je meurs. Parfois je me dis que la vie n'a aucun sens! Si on me demande pourquoi je suis sur terre je ne saurais quoi repondre. On dirait que je me fiche de tout en fait...
               </ion-text>
-              <span class="span-small">Il y a 2 sem</span>
+              <span class="span-small sms-date">Il y a 2 sem</span>
             </ion-label>
           </ion-item>
           
-          <ion-item class="box-shadow ion-margin-top ion-no-padding" lines="none">
+          <ion-item class="box-shadow ion-margin-top ion-no-padding sms-item" lines="none">
             <ion-label>
-              <h2 style="font-size: 20px;">Ma vie est enfermee dans une boite</h2>
-              <h3 class="ion-text-wrap size-sm">Style de vie</h3>
+              <h2 style="font-size: 20px;" class="ion-text-wrap">Ma vie est enfermee dans une boite</h2>
+              <h3 class="ion-text-wrap size-sm sms-category">Style de vie</h3>
               <ion-text class="ion-text-wrap">
                 Pourquoi je voem pourquoi je meurs. Parfois je me dis que la vie n'a aucun sens! Si on me demande pourquoi je suis sur terre je ne saurais quoi repondre. On dirait que je me fiche de tout en fait...
               </ion-text>
-              <span class="span-small">Il y a 2 sem</span>
+              <span class="span-small sms-date">Il y a 2 sem</span>
             </ion-label>
           </ion-item>
           
-          <ion-item class="box-shadow ion-margin-top ion-no-padding" lines="none">
+          <ion-item class="box-shadow ion-margin-top ion-no-padding sms-item" lines="none">
             <ion-label>
-              <h2 style="font-size: 20px;">Ma vie est enfermee dans une boite</h2>
-              <h3 class="ion-text-wrap size-sm">Style de vie</h3>
+              <h2 style="font-size: 20px;" class="ion-text-wrap">Ma vie est enfermee dans une boite</h2>
+              <h3 class="ion-text-wrap size-sm sms-category">Style de vie</h3>
               <ion-text class="ion-text-wrap">
                 Pourquoi je voem pourquoi je meurs. Parfois je me dis que la vie n'a aucun sens! Si on me demande pourquoi je suis sur terre je ne saurais quoi repondre. On dirait que je me fiche de tout en fait...
               </ion-text>
-              <span class="span-small">Il y a 2 sem</span>
+              <span class="span-small sms-date">Il y a 2 sem</span>
             </ion-label>
           </ion-item>
         </div>
