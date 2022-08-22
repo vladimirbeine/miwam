@@ -1,12 +1,39 @@
 <ion-app>
-  <ion-menu contentId="main" menuId="main-menu" side="start" type="overlay">
-    <ion-header>
-      <ion-toolbar color="danger">
-        <ion-title>Miwam</ion-title>
-      </ion-toolbar>
-    </ion-header>
+  <ion-menu menuId="main-menu" contentId="main">
     <ion-content>
-      Statistiques Utilisateurs
+      <div id="header-menu-bg"></div>
+      <div id="header-content">
+        <img src="../assets/images/capacitor-logo.png" alt="E">
+        <ion-label>
+          <h2>Miwa'm</h2>
+          <p>Quotes app</p>
+        </ion-label>
+      </div>
+      <div id="action-button">
+        <ion-button>
+          <ion-icon slot="start" name="add"></ion-icon> Follow me
+        </ion-button>
+      </div>
+      <ion-list id="menu-items" lines="none">
+        <ion-item>
+          <ion-icon name="pie-chart-outline"></ion-icon> Dashboard
+        </ion-item>
+        <ion-item>
+          <ion-icon name="browsers-outline"></ion-icon> Post sessions
+        </ion-item>
+        <ion-item class="active">
+          <ion-icon name="flash"></ion-icon> Live sessions
+        </ion-item>
+        <ion-item>
+          <ion-icon name="chatbubble-ellipses-outline"></ion-icon> Messages
+        </ion-item>
+        <ion-item>
+          <ion-icon name="heart-outline"></ion-icon> Locum library
+        </ion-item>
+        <ion-item>
+          <ion-icon name="exit-outline"></ion-icon> Signout
+        </ion-item>
+      </ion-list>
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>

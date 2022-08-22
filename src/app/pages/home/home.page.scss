@@ -16,3 +16,25 @@ iframe {
     margin: 20px 0 !important;
     width: 100% !important;
 }
+
+img.swiper-home {
+    width: 100%;
+    object-fit: cover;
+}
+
+.home-scroll-container {
+  overflow: auto;
+  white-space: nowrap;
+  padding: 5px 70px 5px 20px;
+  background: transparent;
+  height: 100%;
+  border-radius:15px;
+}
+
+.grid-scroll{
+    display:inline-block;
+  }
+  
+  .grid-scroll img {
+    margin-right:22px;
+  }
