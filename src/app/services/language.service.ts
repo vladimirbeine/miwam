@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@capacitor/storage';
-import { Platform } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 
-
-const LNG_KEY = '';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LanguageService {
 
-  selected: any = null;
+  selectedLng: any = null;
+  selectedTheme: any = null;
 
-  constructor(private translate: TranslateService, private platform: Platform) { }
+  constructor(private translate: TranslateService) { }
 
   setInitialAppLanguage() {
     let language = this.translate.getBrowserLang();
@@ -39,6 +37,15 @@ export class LanguageService {
       key: 'LNG_KEY',
       value: lng
     });
-    this.selected = lng;
+    this.selectedLng = lng;
+  }
+
+  setTheme(theme) {
+    this.translate.use(theme);
+    Storage.set({
+      key: 'THEME_KEY',
+      value: theme
+    });
+    this.selectedTheme = theme;
   }
 }
