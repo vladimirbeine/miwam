@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { IonModal, LoadingController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
+import { SMS, SmsService } from 'src/app/services/sms.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,18 +12,37 @@ import { ProfileService } from 'src/app/services/profile.service';
 })
 export class ProfilePage implements OnInit {
 
+  @ViewChild(IonModal) modal: IonModal;
+
+  
+  allSMS: SMS[];
+
+  smsTitle: string;
+  smsMessage: string;
+  smsCategory: string;
+
   user: any = null;
+
+  
+  presentingElement = null;
 
   constructor(
     private authService: AuthService,
     private profileService: ProfileService,
     private router: Router,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private smsService: SmsService
     ) {
     this.loadProfile();
     }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.smsService
+      .getAllSMS()
+      .subscribe(res => {
+        this.allSMS = res;
+      });
+  }
 
   async loadProfile(): Promise<any> {
     const loading = await this.loadingController.create({
@@ -42,5 +62,18 @@ export class ProfilePage implements OnInit {
     await this.authService.logout();
     this.router.navigateByUrl('/tabs/home');
   }
+
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+
+  async confirm() {
+    await this.smsService.addSMS(this.smsTitle, this.smsMessage, this.smsCategory).catch(e => {
+      console.log("SMS data not submitted", e);
+    })
+    this.modal.dismiss();
+  }
+
+  onWillDismiss() {}
 
 }
