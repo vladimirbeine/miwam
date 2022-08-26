@@ -47,4 +47,10 @@ export class HomePage implements OnInit {
     console.log('slide change');
   }
 
+  doRefresh(event) {
+    setTimeout(() => {
+      event.target.complete();
+    }, 500);
+  }
+
 }

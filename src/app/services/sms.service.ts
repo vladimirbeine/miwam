@@ -56,7 +56,7 @@ export class SmsService {
       title,
       message,
       category,
-      createdAt: new Date().getTime(),
+      createdAt: Date.now(),
       updatedAt: null,
       likes: null,
       views: null,

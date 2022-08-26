@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonModal, LoadingController } from '@ionic/angular';
+import { IonModal, LoadingController, MenuController } from '@ionic/angular';
+import { DateAsAgoPipe } from 'src/app/pipes/date-as-ago.pipe';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
 import { SMS, SmsService } from 'src/app/services/sms.service';
@@ -31,7 +32,9 @@ export class ProfilePage implements OnInit {
     private profileService: ProfileService,
     private router: Router,
     private loadingController: LoadingController,
-    private smsService: SmsService
+    private smsService: SmsService,
+    public dateAsAgo: DateAsAgoPipe,
+    private menuController: MenuController
     ) {
     this.loadProfile();
     }
@@ -42,6 +45,8 @@ export class ProfilePage implements OnInit {
       .subscribe(res => {
         this.allSMS = res;
       });
+
+      console.log("Date.now() ", new Date(1661505791961));
   }
 
   async loadProfile(): Promise<any> {
@@ -72,6 +77,10 @@ export class ProfilePage implements OnInit {
       console.log("SMS data not submitted", e);
     })
     this.modal.dismiss();
+  }
+
+  toggleMenu() {
+    this.menuController.toggle('profile');
   }
 
   onWillDismiss() {}

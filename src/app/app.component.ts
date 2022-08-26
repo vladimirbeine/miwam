@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 import { LanguageService } from './services/language.service';
 
 @Component({
@@ -8,10 +10,19 @@ import { LanguageService } from './services/language.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private lngService: LanguageService) {}
+  constructor(
+    private lngService: LanguageService,
+    private authService: AuthService,
+    private router: Router
+    ) {}
 
   ngOnInit() {
     this.lngService.setInitialAppLanguage();
+  }
+
+  async logout() {
+    await this.authService.logout();
+    this.router.navigateByUrl('/tabs/home');
   }
 
 }

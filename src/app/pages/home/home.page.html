@@ -17,18 +17,17 @@
 
 <ion-content>
 
-  <ion-segment color="secondary" [(ngModel)]="mainSegment" (ionChange)="segmentChanged($event)" scrollable>
+  
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="50" pullMax="100" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-segment color="primary" [(ngModel)]="mainSegment" (ionChange)="segmentChanged($event)" scrollable>
     <ion-segment-button value="quotes">
-      <ion-label>Quotes</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="stories">
-      <ion-label>Stories</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="videos">
-      <ion-label>Videos</ion-label>
+      <ion-label>Images</ion-label>
     </ion-segment-button>
     <ion-segment-button value="sms">
-      <ion-label>SMS</ion-label>
+      <ion-label>Textes</ion-label>
     </ion-segment-button>
   </ion-segment>
 

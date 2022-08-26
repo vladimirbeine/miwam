@@ -5,9 +5,7 @@
     </ion-buttons>
     <ion-title>Profile</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="logout()">
-        <ion-icon slot="icon-only" name="exit-outline"></ion-icon>
-      </ion-button>
+      <ion-menu-button menu="profile"></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -86,14 +84,14 @@
               <ion-text class="ion-text-wrap">
                 {{ sms.message }}
               </ion-text>
-              <p class="span-small sms-date">{{ sms.createdAt | date:'short' }}</p>
+              <p class="span-small sms-date">{{ sms.createdAt | dateAsAgo }}</p>
             </ion-label>
           </ion-item>
         </div>
         </div>
 
 
-        <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)" [initialBreakpoint]="0.50" [breakpoints]="[0, 0.50, 0.5, 0.75]">
+        <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)" [initialBreakpoint]="0.75" [breakpoints]="[0, 0.75, 0.5, 1]">
           <ng-template>
             <ion-header class="ion-no-border">
               <ion-toolbar  color="primary">
@@ -108,18 +106,25 @@
             <ion-content class="ion-padding">
               <ion-item>
                 <ion-label position="stacked">Titre</ion-label>
-                <ion-input type="text" [(ngModel)]="smsTitle" required></ion-input>
+                <ion-input type="text" placeholder="Choisissez un titre pas trop long" [(ngModel)]="smsTitle" required></ion-input>
               </ion-item>
               <ion-item>
                 <ion-label position="stacked">Message</ion-label>
-                <ion-textarea type="text" [(ngModel)]="smsMessage" required></ion-textarea>
+                <ion-textarea type="text" placeholder="Ecrivez un message pas trop long" [(ngModel)]="smsMessage" required></ion-textarea>
               </ion-item>
               <ion-item>
-                <ion-label position="stacked">Categorie</ion-label>
-                <ion-select [(ngModel)]="smsCategory" placeholder="Choisir">
-                  <ion-select-option value="Amour">Amour</ion-select-option>
-                  <ion-select-option value="Amitie">Amitie</ion-select-option>
-                  <ion-select-option value="Argent">Argent</ion-select-option>
+                <ion-label position="stacked">Les categories</ion-label>
+                <ion-select [(ngModel)]="smsCategory" placeholder="Choisir une categorie">
+                  <ion-select-option value="love">Amour</ion-select-option>
+                  <ion-select-option value="friendship">Amitie</ion-select-option>
+                  <ion-select-option value="money">Argent</ion-select-option>
+                  <ion-select-option value="birthday">Anniversaire</ion-select-option>
+                  <ion-select-option value="education">Education</ion-select-option>
+                  <ion-select-option value="happiness">Bonheur</ion-select-option>
+                  <ion-select-option value="life">La vie</ion-select-option>
+                  <ion-select-option value="brave">Courage</ion-select-option>
+                  <ion-select-option value="god">Bonte</ion-select-option>
+                  <ion-select-option value="devil">Mechancete</ion-select-option>
                 </ion-select>
               </ion-item>
             </ion-content>
@@ -131,10 +136,10 @@
             <ion-icon name="add"></ion-icon>
           </ion-fab-button>
           <ion-fab-list side="top">
-            <ion-fab-button id="open-modal"><ion-icon name="mail-unread-outline"></ion-icon></ion-fab-button>
-          </ion-fab-list>
-          <ion-fab-list side="start">
-            <ion-fab-button><ion-icon name="image-outline"></ion-icon></ion-fab-button>
+            <ion-fab-button id="open-modal" color="secondary"><ion-icon name="mail-unread-outline"></ion-icon></ion-fab-button>
+            <ion-label>Texte</ion-label>
+            <ion-fab-button color="secondary"><ion-icon name="image-outline"></ion-icon></ion-fab-button>
+            <ion-label>Image</ion-label>
           </ion-fab-list>
         </ion-fab>
 
