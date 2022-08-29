@@ -11,6 +11,8 @@ import { HomePage } from './home.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguagePopoverComponent } from 'src/app/components/language-popover/language-popover.component';
 import { HomeHeaderMoreSettingsPopoverComponent } from 'src/app/components/home-header-more-settings-popover/home-header-more-settings-popover.component';
+import { SuperTabsModule } from '@ionic-super-tabs/angular';
+import { DateAsAgoPipe } from 'src/app/pipes/date-as-ago.pipe';
 
 @NgModule({
   imports: [
@@ -19,12 +21,17 @@ import { HomeHeaderMoreSettingsPopoverComponent } from 'src/app/components/home-
     IonicModule,
     HomePageRoutingModule,
     TranslateModule,
+    SuperTabsModule,
     SwiperModule,
   ],
   declarations: [
     HomePage,
     LanguagePopoverComponent,
-    HomeHeaderMoreSettingsPopoverComponent
+    HomeHeaderMoreSettingsPopoverComponent,
+    DateAsAgoPipe
+  ],
+  providers: [
+    DateAsAgoPipe
   ]
 })
 export class HomePageModule {}

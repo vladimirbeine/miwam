@@ -1,15 +1,10 @@
-ion-toolbar {
-    --background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-ion-content {
-    --offset-top: 55px !important;
-}
-  
 ion-card.main-card {
     margin: 30px;
+}
+
+strong {
+  color: var(--ion-color-primary);
+  text-transform: uppercase;
 }
 
 iframe {
@@ -17,7 +12,7 @@ iframe {
     width: 100% !important;
 }
 
-img.swiper-home {
+.slides-home {
     width: 100%;
     object-fit: cover;
 }
@@ -38,3 +33,23 @@ img.swiper-home {
   .grid-scroll img {
     margin-right:22px;
   }
+
+  .link-item-small {
+    margin: 12px 0;
+  }
+
+.cover-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.custom-popover {
+  --backdrop-opacity: rgba(0, 0, 0, 0.8);
+  padding: 0 !important;
+}
+
+.popover-wraper {
+  --padding: 0 !important;
+}

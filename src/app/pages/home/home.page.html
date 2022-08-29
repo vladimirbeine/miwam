@@ -1,6 +1,6 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>{{ 'HOME.title' | translate }}</ion-title>
+    <ion-title>Miwam</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
@@ -15,295 +15,261 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<super-tabs
+  [activeTabIndex]="0"
+  [config]="stConfig"
+>
+  <super-tabs-toolbar slot="top" scrollable class="super-tabs-toolbar-custom">
+    <super-tab-button>
+      <ion-label>Latest</ion-label>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-label>Quotes</ion-label>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-label>Status</ion-label>
+    </super-tab-button>
+    <super-tab-button>
+      <ion-label>Stories</ion-label>
+    </super-tab-button>
+  </super-tabs-toolbar>
 
-  
-  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="50" pullMax="100" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
+  <super-tabs-container>
+    <!-- LATEST -->
+    <super-tab>
+      <ion-content>
 
-  <ion-segment color="primary" [(ngModel)]="mainSegment" (ionChange)="segmentChanged($event)" scrollable>
-    <ion-segment-button value="quotes">
-      <ion-label>Images</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="sms">
-      <ion-label>Textes</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-
-  <div [ngSwitch]="mainSegment">
-
-    <ion-list *ngSwitchCase="'quotes'">
+        <!-- QUOTE OF THE DAY -->
+        <div class="container-view">
+          <ion-list>
+            <ion-list-header class="ion-list-header-custom">
+              <strong>QUOTE OF THE DAY</strong>
+            </ion-list-header>
             
-    <div class="home-scroll-container">
-    <div class="grid-scroll">
-      <img src="../../../assets/images/img1.png" alt="">
-      <img src="../../../assets/images/img1.png" alt="">
-      <img src="../../../assets/images/img1.png" alt="">
-      <img src="../../../assets/images/img1.png" alt="">
-      <img src="../../../assets/images/img1.png" alt="">
-      <img src="../../../assets/images/img1.png" alt="">
-      <img src="../../../assets/images/img1.png" alt="">
-    </div>
-    </div>
+            <ion-card (click)="openCard('../../../assets/images/img_1.png')" class="card-custom">
+              <img class="cover-image" src="../../../assets/images/img_1.png">
+              <ion-row>
+                <ion-col class="ion-padding">
+                  2h
+                </ion-col>
+                <ion-col size="auto">
+                  <ion-button fill="clear" size="small" color="medium">
+                    <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                    <ion-label>6</ion-label>
+                  </ion-button>
+                  <ion-button fill="clear" size="small" color="medium">
+                    <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
+                    <ion-label>267</ion-label>
+                  </ion-button>
+                  <ion-button fill="clear" size="small" color="medium">
+                    <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+                    <ion-label>129</ion-label>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-list>
+        </div>
+        
+        <!-- IMAGES SWIPES -->
+        <swiper avoid-super-tabs="true" [config]="swConfig">
+          <ng-template swiperSlide>
+            <img src="../../../assets/images/img1.png" alt="">
+          </ng-template>
+          <ng-template swiperSlide>
+            <img src="../../../assets/images/img1.png" alt="">
+          </ng-template>
+          <ng-template swiperSlide>
+            <img src="../../../assets/images/img1.png" alt="">
+          </ng-template>
+          <ng-template swiperSlide>
+            <img src="../../../assets/images/img1.png" alt="">
+          </ng-template>
+        </swiper>
 
-      <ion-card class="main-card">
-        <img src="../../assets/images/img1.png">
-      </ion-card>
-
-      <ion-card class="main-card">
-        <img src="../../assets/images/img1.png">
-      </ion-card>
-
-      <ion-card class="main-card">
-        <img src="../../assets/images/img1.png">
-      </ion-card>
-
-      <ion-card class="main-card">
-        <img src="../../assets/images/img1.png">
-      </ion-card>
-
-      <ion-card class="main-card">
-        <img src="../../assets/images/img1.png">
-      </ion-card>
-    </ion-list>
-
-    <ion-list lines="full" *ngSwitchCase="'stories'">
-
-      <ion-card class="main-card">
-        <img src="../../assets/images/img1.png">
-        <ion-card-header>
-          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-          <ion-card-title>Card Title</ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
-
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card class="main-card">
-        <img src="../../assets/images/img1.png">
-        <ion-card-header>
-          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-          <ion-card-title>Card Title</ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
-
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-
-        </ion-card-content>
-      </ion-card>
-
-
-      <ion-card class="main-card">
-        <img src="../../assets/images/img1.png">
-        <ion-card-header>
-          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-          <ion-card-title>Card Title</ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
-
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-
-        </ion-card-content>
-      </ion-card>
-
-
-    </ion-list>
-
-    <ion-list lines="full" *ngSwitchCase="'videos'">
-      
-      <iframe width="" height="" src="https://www.youtube.com/embed/12_TcUXP6mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-      <iframe width="" height="" src="https://www.youtube.com/embed/Ln2M_dCtyw4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </ion-list>
-
-    
-    <ion-list lines="full" *ngSwitchCase="'sms'">
-      
-      
-      <ion-card class="main-card">
-        <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
-
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-
-        </ion-card-content>
-      </ion-card>
-
+        <!-- LATEST QUOTES -->
+        <div class="container-view">
+          <ion-list>
+            <ion-list-header class="ion-list-header-custom">
+              <strong>Latest Quotes</strong>
+            </ion-list-header>
             
-      <ion-card class="main-card">
-        <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
-
-          <ion-grid>
+            <ion-card *ngFor="let i of [0,1,2,3]" class="card-custom">
+              <img class="cover-image" src="{{'assets/images/img_' + (i%4+1) + '.png'}}">
+              <ion-row>
+                <ion-col class="ion-padding">
+                  2h
+                </ion-col>
+                <ion-col size="auto">
+                  <ion-button fill="clear" size="small" color="medium">
+                    <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                    <ion-label>6</ion-label>
+                  </ion-button>
+                  <ion-button fill="clear" size="small" color="medium">
+                    <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
+                    <ion-label>267</ion-label>
+                  </ion-button>
+                  <ion-button fill="clear" size="small" color="medium">
+                    <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+                    <ion-label>129</ion-label>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-list>
+          
+        <!-- LATEST SMS -->
+        <ion-list>
+          <ion-list-header>
+            <strong>Latest textes</strong>
+          </ion-list-header>
+          <ion-card *ngFor="let sms of allSMS" class="card-custom">
+            <ion-card-header>
+              <ion-card-title>{{ sms.title }}</ion-card-title>
+              <ion-card-subtitle class="category-name" >{{ sms.category }}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              {{ sms.message }}
+            </ion-card-content>
             <ion-row>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
+              <ion-col class="ion-padding">
+                {{ sms.createdAt | dateAsAgo }}
+              </ion-col>
+              <ion-col size="auto">
+                <ion-button fill="clear" size="small" color="medium">
                   <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                  <ion-label>6</ion-label>
                 </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
+                <ion-button fill="clear" size="small" color="medium">
+                  <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
+                  <ion-label>267</ion-label>
                 </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
+                <ion-button fill="clear" size="small" color="medium">
                   <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
+                  <ion-label>129</ion-label>
                 </ion-button>
               </ion-col>
             </ion-row>
-          </ion-grid>
+          </ion-card>
+        </ion-list>
 
-        </ion-card-content>
-      </ion-card>
 
-            
-      <ion-card class="main-card">
-        <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        <!-- LATEST STORIES -->
+          <ion-card class="card-custom">
+            <ion-list>
+              <ion-list-header class="ion-list-header-custom">
+                <strong>Latest stories</strong>
+              </ion-list-header>
+              <ion-item class="link-item-small" lines="none" *ngFor="let i of [0,1,2,3]">
+                <ion-thumbnail class="ion-thumbnail-custom" slot="start">
+                  <img src="{{'assets/images/img_' + (i%4+1) + '.png'}}" alt="">
+                </ion-thumbnail>
+                <ion-label class="ion-text-wrap">
+                  <div class="category-name">Style</div>
+                  <p class="status-message">UFC champion Conor McGregor announces his retirement -- for the third time</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </div>
 
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="chatbubble-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button fill="clear" color="primary" expand="full">
-                  <ion-icon slot="icon-only" name="bookmark-outline"></ion-icon>
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
+      </ion-content>
+    </super-tab>
 
-        </ion-card-content>
-      </ion-card>
-    </ion-list>
+    <!-- QUOTES SUPERTAB -->
+    <super-tab>
+      <ion-content>
 
-  </div>
+        <div class="container-view">
+        <ion-card class="card-custom">
+          <ion-list>
+            <ion-list-header class="ion-list-header-custom">
+              <strong>Don't miss these</strong>
+            </ion-list-header>
+            <ion-item class="link-item-small" lines="none" *ngFor="let i of [0,1,2,3]">
+              <ion-thumbnail class="ion-thumbnail-custom" slot="start">
+                <img src="{{'assets/images/img_' + (i%4+1) + '.png'}}" alt="">
+              </ion-thumbnail>
+              <ion-label class="ion-text-wrap">
+                <div class="category-name">Style</div>
+                <p class="status-message">UFC champion Conor McGregor announces his retirement -- for the third time</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+        </div>
 
-</ion-content>
+      </ion-content>
+    </super-tab>
+
+    <!-- TEXTS SUPERTAB -->
+    <super-tab>
+      <ion-content>
+
+        <div class="container-view">
+          <ion-list>
+            <ion-list-header>
+              <strong class="uppercase">The best texts</strong>
+            </ion-list-header>
+            <ion-card *ngFor="let sms of allSMS" class="card-custom">
+              <ion-card-header>
+                <ion-card-title>{{ sms.title }}</ion-card-title>
+                <ion-card-subtitle class="category-name" >{{ sms.category }}</ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                {{ sms.message }}
+              </ion-card-content>
+              <ion-row>
+                <ion-col class="ion-padding">
+                  {{ sms.createdAt | dateAsAgo }}
+                </ion-col>
+                <ion-col size="auto">
+                  <ion-button fill="clear" size="small" color="medium">
+                    <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                    <ion-label>6</ion-label>
+                  </ion-button>
+                  <ion-button fill="clear" size="small" color="medium">
+                    <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
+                    <ion-label>267</ion-label>
+                  </ion-button>
+                  <ion-button fill="clear" size="small" color="medium">
+                    <ion-icon slot="icon-only" name="share-social-outline"></ion-icon>
+                    <ion-label>129</ion-label>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-list>
+        </div>
+
+      </ion-content>
+    </super-tab>
+
+    <!-- STORIES SUPERTAB -->
+    <super-tab>
+      <ion-content>
+
+        <div class="container-view">
+          <ion-card class="card-custom">
+            <ion-list>
+              <ion-list-header class="ion-list-header-custom">
+                <strong>Don't miss these</strong>
+              </ion-list-header>
+              <ion-item class="link-item-small" lines="none" *ngFor="let i of [0,1,2,3]">
+                <ion-thumbnail class="ion-thumbnail-custom" slot="start">
+                  <img src="{{'assets/images/img_' + (i%4+1) + '.png'}}" alt="">
+                </ion-thumbnail>
+                <ion-label class="ion-text-wrap">
+                  <div class="category-name">Style</div>
+                  <p class="status-message">UFC champion Conor McGregor announces his retirement -- for the third time</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </div>
+
+      </ion-content>
+    </super-tab>
+
+  </super-tabs-container>
+</super-tabs>

@@ -25,6 +25,7 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+/* Swiper CSS */
 @import "~swiper/scss";
 @import '~swiper/scss/autoplay';
 @import '~swiper/scss/keyboard';
@@ -33,7 +34,27 @@
 @import '~swiper/scss/zoom';
 @import '~@ionic/angular/css/ionic-swiper';
 
+/* Custom CSS */
+@import './sass/variables.override.scss';
+@import './sass/scrollHorizontal.scss';
+@import './sass/fonts.scss';
+@import './sass/app.scss';
+
 
 ion-searchbar, ion-card, ion-button {
     --border: none !important;
+}
+
+ion-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+ion-card-title, ion-card-subtitle, ion-card-content, div.category-name, p.status-message {
+    font-family: 'Quicksand';
+    font-weight: 500;
+}
+
+.uppercase {
+    text-transform: uppercase;
 }

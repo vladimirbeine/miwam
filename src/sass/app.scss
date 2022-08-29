@@ -1,0 +1,66 @@
+super-tabs-toolbar {
+  &:after {
+    background: transparent;
+  }
+}
+
+.container-view {
+  padding: 0 20px 20px 20px;
+}
+
+.super-tabs-toolbar-custom {
+  --super-tabs-toolbar-background: white;
+  --st-indicator-color: var(--ion-color-primary);
+  --st-scrollable-toolbar-padding-left: 8px;
+
+  super-tab-button {
+    --st-base-color-active: var(--ion-color-dark);
+    --st-base-color-inactive: var(--ion-color-dark);
+    --st-label-text-transform: capitalize;
+
+    ion-label {
+      text-transform: uppercase !important;
+    }
+  }
+}
+
+.card-custom {
+  border-radius: 0;
+  box-shadow: rgba(0, 0, 0, 0.10) 0px 25px 20px -20px;
+  margin: 0 0 20px 0;
+}
+
+.card-thumbnail {
+  position: relative;
+  height: 250px;
+  background-color: var(--ion-color-medium);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  .card-caption {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 16px;
+    font-size: 20px;
+    color: #fff;
+    background-image: linear-gradient(to top, rgba(0,0,0,.66), rgba(0,0,0,0));
+  }
+}
+
+.ion-list-header-custom {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.category-name {
+  color: var(--ion-color-primary);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.ion-thumbnail-custom {
+  width: 74px;
+}

@@ -16,7 +16,7 @@ export class ProfilePage implements OnInit {
   @ViewChild(IonModal) modal: IonModal;
 
   
-  allSMS: SMS[];
+  allSMS: SMS[]; 
 
   smsTitle: string;
   smsMessage: string;
@@ -44,9 +44,7 @@ export class ProfilePage implements OnInit {
       .getAllSMS()
       .subscribe(res => {
         this.allSMS = res;
-      });
-
-      console.log("Date.now() ", new Date(1661505791961));
+    });
   }
 
   async loadProfile(): Promise<any> {

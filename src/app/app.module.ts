@@ -18,6 +18,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component';
+import { SuperTabsModule } from '@ionic-super-tabs/angular';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -34,6 +35,7 @@ export function createTranslateLoader(http: HttpClient) {
   IonicModule.forRoot(),
   AppRoutingModule,
   HttpClientModule,
+  SuperTabsModule.forRoot(),
   TranslateModule.forRoot({
     defaultLanguage: 'en',
     loader: {
