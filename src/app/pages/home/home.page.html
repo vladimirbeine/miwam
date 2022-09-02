@@ -15,6 +15,14 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="loadData()" color="secondary">
+      <ion-icon name="refresh-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
 <super-tabs
   [activeTabIndex]="0"
   [config]="stConfig"
@@ -94,7 +102,7 @@
               <strong>Latest Quotes</strong>
             </ion-list-header>
             
-            <ion-card *ngFor="let i of [0,1,2,3]" class="card-custom">
+            <ion-card *ngFor="let i of [0,1,2,3]" class="card-custom" (click)="openCard('assets/images/img_' + (i%4+1) + '.png')">
               <img class="cover-image" src="{{'assets/images/img_' + (i%4+1) + '.png'}}">
               <ion-row>
                 <ion-col class="ion-padding">

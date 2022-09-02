@@ -34,11 +34,22 @@
 @import '~swiper/scss/zoom';
 @import '~@ionic/angular/css/ionic-swiper';
 
-/* Custom CSS */
-@import './sass/variables.override.scss';
-@import './sass/scrollHorizontal.scss';
-@import './sass/fonts.scss';
-@import './sass/app.scss';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;700&display=swap');
+
+:root, :root[mode="md"], :root[mode="ios"] {
+  --ion-font-family: 'Playfair Display', 'Quicksand' !important;
+  font-family: var(--ion-font-family) !important;
+}
+
+:root {
+    ion-img {
+      /** 
+       * Bug fix for:
+       * https://github.com/ionic-team/ionic/issues/18734
+       */
+      min-height: 1px !important;
+    }
+}  
 
 
 ion-searchbar, ion-card, ion-button {

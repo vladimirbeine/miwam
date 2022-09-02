@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { LoadingController, PopoverController } from '@ionic/angular';
 import { HomeHeaderMoreSettingsPopoverComponent } from 'src/app/components/home-header-more-settings-popover/home-header-more-settings-popover.component';
 import { SMS, SmsService } from 'src/app/services/sms.service';
 
@@ -21,14 +21,9 @@ export class HomePage implements OnInit {
   allSMS: SMS[];
 
   stConfig: SuperTabsConfig = {
-    sideMenu: 'left',
-    shortSwipeDuration: 300,
     avoidElements: true,
-    maxDragAngle: 40,
+    maxDragAngle: 30,
     allowElementScroll: true,
-    sideMenuThreshold: 50,
-    transitionDuration: 300,
-    debug: false,
   };
 
   swConfig: SwiperOptions = {
@@ -41,7 +36,7 @@ export class HomePage implements OnInit {
     loop: true,
   };
 
-  constructor(private popover: PopoverController, private smsService: SmsService) { }
+  constructor(private popover: PopoverController, private smsService: SmsService, private loadingCtlr: LoadingController) { }
 
   ngOnInit() {
     this.smsService
@@ -75,6 +70,19 @@ export class HomePage implements OnInit {
     setTimeout(() => {
       event.target.complete();
     }, 500);
+  }
+
+  async loadData(): Promise<any> {
+    const loading = await this.loadingCtlr.create({
+      message: "Loading data...",
+    });
+    await loading.present();
+
+    this.smsService.getAllSMS().subscribe((res) => {
+      this.allSMS = res;
+      console.log("SMS data: ", this.allSMS)
+      loading.dismiss();
+    });
   }
 
 }

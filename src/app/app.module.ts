@@ -19,6 +19,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ProfileMenuComponent } from './components/profile-menu/profile-menu.component';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
+import { AboutPipe } from './pages/about.pipe';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -28,7 +29,8 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileMenuComponent
+    ProfileMenuComponent,
+    AboutPipe
   ],
   imports: 
   [BrowserModule,

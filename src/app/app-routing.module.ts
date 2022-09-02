@@ -31,6 +31,18 @@ const routes: Routes = [
     path: 'spotlight',
     loadChildren: () => import('./pages/spotlight/spotlight.module').then( m => m.SpotlightPageModule)
   },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'membership',
+    loadChildren: () => import('./pages/membership/membership.module').then( m => m.MembershipPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
 ];
 
 @NgModule({
