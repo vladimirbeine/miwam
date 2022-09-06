@@ -80,7 +80,16 @@
         </div>
         
         <!-- IMAGES SWIPES -->
-        <swiper avoid-super-tabs="true" [config]="swConfig">
+        <swiper
+        avoid-super-tabs="true"
+        pager="true"
+        [initialSlide]="0"
+        [autoplay]="true"
+        [loop]="true"
+        [effect]="flip"
+        [config]="swConfig"
+        (swiper)="onSwiper($event)"
+        (slideChange)="onSlideChange()">
           <ng-template swiperSlide>
             <img src="../../../assets/images/img1.png" alt="">
           </ng-template>
@@ -275,6 +284,13 @@
             </ion-list>
           </ion-card>
         </div>
+
+        
+        <ion-button (click)="showBanner()" expand="full">Show Banner</ion-button>
+        <ion-button (click)="hideBanner()" expand="full">Hide Banner</ion-button>
+
+        <ion-button (click)="showInterstitial()" expand="full">Show Interstitial</ion-button>
+        <ion-button (click)="showRewardVideo()" expand="full">Show Rewarded Video</ion-button>
 
       </ion-content>
     </super-tab>

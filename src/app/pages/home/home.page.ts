@@ -5,10 +5,11 @@ import { SMS, SmsService } from 'src/app/services/sms.service';
 
 import { SuperTabsConfig } from '@ionic-super-tabs/core';
 
-import SwiperCore, { SwiperOptions, Autoplay, Keyboard, Pagination, Scrollbar, Zoom, EffectFlip } from 'swiper';
+import SwiperCore, { SwiperOptions, Autoplay, Keyboard, Pagination, Scrollbar, Zoom, Navigation, EffectFlip } from 'swiper';
 import { CardDetailsComponent } from 'src/app/components/card-details/card-details.component';
+import { AdmobService } from 'src/app/services/admob.service';
 
-SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, EffectFlip]);
+SwiperCore.use([Autoplay, Keyboard, Navigation, Pagination, Scrollbar, Zoom, EffectFlip]);
 
 @Component({
   selector: 'app-home',
@@ -36,14 +37,21 @@ export class HomePage implements OnInit {
     loop: true,
   };
 
-  constructor(private popover: PopoverController, private smsService: SmsService, private loadingCtlr: LoadingController) { }
+  constructor(
+    private popover: PopoverController,
+    private smsService: SmsService,
+    private loadingCtlr: LoadingController,
+    private adMobService: AdmobService
+    ) { }
 
-  ngOnInit() {
-    this.smsService
+  async ngOnInit() {
+    await this.smsService
       .getAllSMS()
       .subscribe(res => {
         this.allSMS = res;
     });
+
+    await this.adMobService.showBanner();
   }
 
   async openMoreSettings() {
@@ -84,5 +92,29 @@ export class HomePage implements OnInit {
       loading.dismiss();
     });
   }
+    
+  onSwiper(swiper) {
+    console.log("Swiper data: ", swiper);
+  }
+  onSlideChange() {
+    console.log('slide change');
+  }
+
+  showBanner() {
+    this.adMobService.showBanner();
+  }
+
+  hideBanner() {
+    this.adMobService.hideBanner();
+  }
+
+  showInterstitial() {
+    this.adMobService.showInterstitial();
+  }
+
+  showRewardVideo() {
+    this.adMobService.showRewardVideo();
+  }
+
 
 }
