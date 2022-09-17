@@ -54,8 +54,8 @@
               <strong>QUOTE OF THE DAY</strong>
             </ion-list-header>
             
-            <ion-card (click)="openCard('../../../assets/images/img_1.png')" class="card-custom">
-              <img class="cover-image" src="../../../assets/images/img_1.png">
+            <ion-card class="card-custom">
+              <img (click)="openCard('../../../assets/images/img_1.png')" class="cover-image" src="../../../assets/images/img_1.png">
               <ion-row>
                 <ion-col class="ion-padding">
                   2h
@@ -78,31 +78,6 @@
             </ion-card>
           </ion-list>
         </div>
-        
-        <!-- IMAGES SWIPES -->
-        <swiper
-        avoid-super-tabs="true"
-        pager="true"
-        [initialSlide]="0"
-        [autoplay]="true"
-        [loop]="true"
-        [effect]="flip"
-        [config]="swConfig"
-        (swiper)="onSwiper($event)"
-        (slideChange)="onSlideChange()">
-          <ng-template swiperSlide>
-            <img src="../../../assets/images/img1.png" alt="">
-          </ng-template>
-          <ng-template swiperSlide>
-            <img src="../../../assets/images/img1.png" alt="">
-          </ng-template>
-          <ng-template swiperSlide>
-            <img src="../../../assets/images/img1.png" alt="">
-          </ng-template>
-          <ng-template swiperSlide>
-            <img src="../../../assets/images/img1.png" alt="">
-          </ng-template>
-        </swiper>
 
         <!-- LATEST QUOTES -->
         <div class="container-view">
@@ -169,7 +144,31 @@
             </ion-row>
           </ion-card>
         </ion-list>
-
+        
+        <!-- IMAGES SWIPES -->
+        <swiper
+        avoid-super-tabs="true"
+        pager="true"
+        [initialSlide]="0"
+        [autoplay]="true"
+        [loop]="true"
+        [effect]="flip"
+        [config]="swConfig"
+        (swiper)="onSwiper($event)"
+        (slideChange)="onSlideChange()">
+          <ng-template swiperSlide>
+            <img src="../../../assets/images/img1.png" alt="">
+          </ng-template>
+          <ng-template swiperSlide>
+            <img src="../../../assets/images/img1.png" alt="">
+          </ng-template>
+          <ng-template swiperSlide>
+            <img src="../../../assets/images/img1.png" alt="">
+          </ng-template>
+          <ng-template swiperSlide>
+            <img src="../../../assets/images/img1.png" alt="">
+          </ng-template>
+        </swiper>
 
         <!-- LATEST STORIES -->
           <ion-card class="card-custom">

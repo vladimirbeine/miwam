@@ -8,6 +8,7 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
 import { DateAsAgoPipe } from 'src/app/pipes/date-as-ago.pipe';
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { DateAsAgoPipe } from 'src/app/pipes/date-as-ago.pipe';
     ProfilePageRoutingModule
   ],
   declarations: [ProfilePage, DateAsAgoPipe],
-  providers: [DateAsAgoPipe]
+  providers: [DateAsAgoPipe, Camera]
 })
 export class ProfilePageModule {}

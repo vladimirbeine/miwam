@@ -7,7 +7,6 @@ import { SuperTabsConfig } from '@ionic-super-tabs/core';
 
 import SwiperCore, { SwiperOptions, Autoplay, Keyboard, Pagination, Scrollbar, Zoom, Navigation, EffectFlip } from 'swiper';
 import { CardDetailsComponent } from 'src/app/components/card-details/card-details.component';
-import { AdmobService } from 'src/app/services/admob.service';
 
 SwiperCore.use([Autoplay, Keyboard, Navigation, Pagination, Scrollbar, Zoom, EffectFlip]);
 
@@ -40,8 +39,7 @@ export class HomePage implements OnInit {
   constructor(
     private popover: PopoverController,
     private smsService: SmsService,
-    private loadingCtlr: LoadingController,
-    private adMobService: AdmobService
+    private loadingCtlr: LoadingController
     ) { }
 
   async ngOnInit() {
@@ -50,8 +48,6 @@ export class HomePage implements OnInit {
       .subscribe(res => {
         this.allSMS = res;
     });
-
-    await this.adMobService.showBanner();
   }
 
   async openMoreSettings() {
@@ -101,19 +97,15 @@ export class HomePage implements OnInit {
   }
 
   showBanner() {
-    this.adMobService.showBanner();
   }
 
   hideBanner() {
-    this.adMobService.hideBanner();
   }
 
   showInterstitial() {
-    this.adMobService.showInterstitial();
   }
 
   showRewardVideo() {
-    this.adMobService.showRewardVideo();
   }
 
 
