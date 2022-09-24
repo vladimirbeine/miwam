@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import { AuthService } from './services/auth.service';
 import { LanguageService } from './services/language.service';
 
@@ -13,7 +14,8 @@ export class AppComponent implements OnInit {
   constructor(
     private lngService: LanguageService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private menuCtlr: MenuController
     ) {}
 
   ngOnInit() {
@@ -25,4 +27,8 @@ export class AppComponent implements OnInit {
     this.router.navigateByUrl('/tabs/home');
   }
 
+  openSettingsPage() {
+    this.router.navigateByUrl("/settings");
+    this.menuCtlr.close();
+  }
 }

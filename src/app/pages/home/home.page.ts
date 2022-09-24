@@ -7,6 +7,8 @@ import { SuperTabsConfig } from '@ionic-super-tabs/core';
 
 import SwiperCore, { SwiperOptions, Autoplay, Keyboard, Pagination, Scrollbar, Zoom, Navigation, EffectFlip } from 'swiper';
 import { CardDetailsComponent } from 'src/app/components/card-details/card-details.component';
+import { StatusService } from 'src/app/services/status.service';
+import { Status } from 'src/app/interfaces/status';
 
 SwiperCore.use([Autoplay, Keyboard, Navigation, Pagination, Scrollbar, Zoom, EffectFlip]);
 
@@ -18,7 +20,7 @@ SwiperCore.use([Autoplay, Keyboard, Navigation, Pagination, Scrollbar, Zoom, Eff
 export class HomePage implements OnInit {
 
   
-  allSMS: SMS[];
+  allStatuses: Status[];
 
   stConfig: SuperTabsConfig = {
     avoidElements: true,
@@ -39,14 +41,15 @@ export class HomePage implements OnInit {
   constructor(
     private popover: PopoverController,
     private smsService: SmsService,
-    private loadingCtlr: LoadingController
+    private loadingCtlr: LoadingController,
+    private allStatus: StatusService
     ) { }
 
   async ngOnInit() {
-    await this.smsService
-      .getAllSMS()
+    await this.allStatus
+      .getAllStatuses()
       .subscribe(res => {
-        this.allSMS = res;
+        this.allStatuses = res;
     });
   }
 
@@ -83,8 +86,8 @@ export class HomePage implements OnInit {
     await loading.present();
 
     this.smsService.getAllSMS().subscribe((res) => {
-      this.allSMS = res;
-      console.log("SMS data: ", this.allSMS)
+      this.allStatuses = res;
+      console.log("SMS data: ", this.allStatuses)
       loading.dismiss();
     });
   }

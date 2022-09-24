@@ -11,4 +11,27 @@
 
 <ion-content>
   
+  
+  <div id="wrapper">
+    <ion-card class="form-wrapper">
+      <ion-card-content>
+        <ion-item fill="solid" class="ion-margin-bottom">
+          <ion-input required type="text" value="{{firstname}}" ngDefaultControl [(ngModel)]="firstname"></ion-input>
+        </ion-item>
+        <ion-item fill="solid" class="ion-margin-bottom">
+          <ion-input required type="text" value="{{lastname}}" ngDefaultControl [(ngModel)]="lastname"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input required type="email" value="{{email}}" ngDefaultControl [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item fill="solid" class="ion-margin-bottom">
+          <ion-input required type="text" placeholder="optional" ngDefaultControl value="{{phone}}" [(ngModel)]="phone"></ion-input>
+        </ion-item>
+        <ion-button expand="block" (click)="update(firstname, lastname, email, phone)">Update</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+
 </ion-content>

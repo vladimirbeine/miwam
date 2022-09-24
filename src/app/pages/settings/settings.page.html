@@ -1,5 +1,8 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/profile"></ion-back-button>
+    </ion-buttons>
     <ion-title>Settings</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,9 +17,7 @@
         </ion-text>
         <p>System default</p>
       </ion-label>
-      <ion-button slot="end" expand="block" fill="clear" shape="round">
-        <ion-icon slot="icon-only" name="contrast-outline"></ion-icon>
-      </ion-button>
+      <ion-toggle (ionChange)="onClick($event)" slot="end"></ion-toggle>
     </ion-item>
 
     <ion-item lines="full">

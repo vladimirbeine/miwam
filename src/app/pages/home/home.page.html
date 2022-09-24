@@ -110,22 +110,22 @@
             </ion-card>
           </ion-list>
           
-        <!-- LATEST SMS -->
+        <!-- LATEST STATUSES -->
         <ion-list>
           <ion-list-header>
             <strong>Latest textes</strong>
           </ion-list-header>
-          <ion-card *ngFor="let sms of allSMS" class="card-custom">
+          <ion-card *ngFor="let status of allStatuses" class="card-custom">
             <ion-card-header>
-              <ion-card-title>{{ sms.title }}</ion-card-title>
-              <ion-card-subtitle class="category-name" >{{ sms.category }}</ion-card-subtitle>
+              <ion-card-title>{{ status.title }}</ion-card-title>
+              <ion-card-subtitle class="category-name" >{{ status.category }}</ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
-              {{ sms.message }}
+              {{ status.message }}
             </ion-card-content>
             <ion-row>
               <ion-col class="ion-padding">
-                {{ sms.createdAt | dateAsAgo }}
+                {{ status.createdAt | dateAsAgo }}
               </ion-col>
               <ion-col size="auto">
                 <ion-button fill="clear" size="small" color="medium">
@@ -227,17 +227,17 @@
             <ion-list-header>
               <strong class="uppercase">The best texts</strong>
             </ion-list-header>
-            <ion-card *ngFor="let sms of allSMS" class="card-custom">
+            <ion-card *ngFor="let status of allStatuses" class="card-custom">
               <ion-card-header>
-                <ion-card-title>{{ sms.title }}</ion-card-title>
-                <ion-card-subtitle class="category-name" >{{ sms.category }}</ion-card-subtitle>
+                <ion-card-title>{{ status.title }}</ion-card-title>
+                <ion-card-subtitle class="category-name" >{{ status.category }}</ion-card-subtitle>
               </ion-card-header>
               <ion-card-content>
-                {{ sms.message }}
+                {{ status.message }}
               </ion-card-content>
               <ion-row>
                 <ion-col class="ion-padding">
-                  {{ sms.createdAt | dateAsAgo }}
+                  {{ status.createdAt | dateAsAgo }}
                 </ion-col>
                 <ion-col size="auto">
                   <ion-button fill="clear" size="small" color="medium">

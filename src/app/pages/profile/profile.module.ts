@@ -9,15 +9,18 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 import { ProfilePage } from './profile.page';
 import { DateAsAgoPipe } from 'src/app/pipes/date-as-ago.pipe';
 import { Camera } from '@awesome-cordova-plugins/camera/ngx';
+import { SharedModuleModule } from 'src/app/components/shared-module.module';
+import { FileSizePipe } from 'src/app/pipes/file-size.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfilePageRoutingModule
+    ProfilePageRoutingModule,
+    SharedModuleModule
   ],
-  declarations: [ProfilePage, DateAsAgoPipe],
+  declarations: [ProfilePage, DateAsAgoPipe, FileSizePipe],
   providers: [DateAsAgoPipe, Camera]
 })
 export class ProfilePageModule {}

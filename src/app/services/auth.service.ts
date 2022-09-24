@@ -32,11 +32,12 @@ export class AuthService {
           lastname: user.lastname,
           phone: user.phone,
           createdAt: new Date(),
-          role: 'user'
+          role: 'user',
+          avatar: null
         });
       }).catch(e => {
         console.log("Error on signup: ", e);
-      });
+    });
   }
 
   async signin({ email, password }) {
